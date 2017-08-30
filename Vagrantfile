@@ -42,6 +42,11 @@ Vagrant.configure("2") do |config|
       end
 
       if !configs['provision'].nil?
+        env = Hash.new
+        if !configs['env'].nil?
+          env = configs['env']
+        end
+
         configs['provision'].each do |name, provision|
           provision.each do |script_privilege|
             script, privileged = script_privilege.split(':')
@@ -52,9 +57,10 @@ Vagrant.configure("2") do |config|
 
             box.vm.provision "shell",
               keep_color: true,
-              name: name,
+              name: "#{script} under #{name}",
               path: script,
-              privileged: privileged
+              privileged: privileged,
+              env: env
           end
         end
       end
