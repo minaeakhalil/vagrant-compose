@@ -7,7 +7,8 @@ apt-get update \
 apt-get install -y \
   ntp \
   git-core \
-  git-flow
+  git-flow \
+  zsh
 
 service ntp start
 

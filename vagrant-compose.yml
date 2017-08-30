@@ -5,7 +5,6 @@ boxes:
     image: "ubuntu/trusty64"
     ports:
       - 8080:80:127.0.0.1
-      - 2200:22:127.0.0.1
     networks:
       private_network:
     synced_folder:
@@ -21,6 +20,7 @@ boxes:
       utils:
         - provision/vim.sh
         - provision/git.sh
+        - provision/zsh.sh
     env:
       GIT_USERNAME: YOUR_USERNAME
       GIT_EMAIL: YOUR_EMAIL
