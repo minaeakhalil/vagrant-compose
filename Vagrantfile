@@ -31,6 +31,16 @@ Vagrant.configure("2") do |config|
         end
       end
 
+      if !configs['synced_folder'].nil?
+        configs['synced_folder'].each do |description, folder|
+          box.vm.synced_folder folder['host'],
+            folder['guest'],
+            owner: folder['owner'],
+            group: folder['group'],
+            mount_options: ["#{folder['mount_options']}"]
+        end
+      end
+
       if !configs['provision'].nil?
         configs['provision'].each do |name, provision|
           provision.each do |script_privilege|
