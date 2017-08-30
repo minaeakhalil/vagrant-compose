@@ -17,5 +17,5 @@ boxes:
     provision:
       core:
         - provision/base.sh:privileged
-      #utils:
-        #- provision/vim.sh
+      utils:
+        - provision/vim.sh

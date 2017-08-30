@@ -5,7 +5,9 @@ apt-get update \
   && apt-get install -y
 
 apt-get install -y \
-  ntp
+  ntp \
+  git-core \
+  git-flow
 
 service ntp start
 
