@@ -1,0 +1,26 @@
+version: '1'
+
+boxes:
+  dev:
+    image: "ubuntu/trusty64"
+    ports:
+      - 8080:80:127.0.0.1
+    networks:
+      private_network:
+    synced_folder:
+      ssh_keys:
+        host: ~/.ssh/keys
+        guest: /home/vagrant/.ssh/keys
+        owner: vagrant
+        group: vagrant
+        mount_options: dmode=755,fmode=754
+    provision:
+      core:
+        - provision/base.sh:privileged
+      utils:
+        - provision/vim.sh
+        - provision/git.sh
+        - provision/zsh.sh
+    env:
+      GIT_USERNAME: YOUR_USERNAME
+      GIT_EMAIL: YOUR_EMAIL
