@@ -25,6 +25,8 @@ boxes:
         - provision/git.sh
         - provision/zsh.sh
         - provision/docker.sh
+        - provision/mysql.sh
     env:
       GIT_USERNAME: YOUR_USERNAME
       GIT_EMAIL: YOUR_EMAIL
+      MYSQL_ROOT_PASSWORD: YOUR_ROOT_PASSWORD
