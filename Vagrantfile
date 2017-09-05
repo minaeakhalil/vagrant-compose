@@ -64,6 +64,20 @@ Vagrant.configure("2") do |config|
           end
         end
       end
+
+      if !configs['specs'].nil?
+        box.vm.provider "virtualbox" do |vb|
+          vb.name = "Vagrant Compose"
+
+          if !configs['specs']['cpus'].nil?
+            vb.customize ["modifyvm", :id, "--cpus", configs['specs']['cpus']]
+          end
+
+          if !configs['specs']['memory'].nil?
+            vb.customize ["modifyvm", :id, "--memory", configs['specs']['memory']]
+          end
+        end
+      end
     end
   end
 end

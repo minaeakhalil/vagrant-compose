@@ -3,6 +3,9 @@ version: '1'
 boxes:
   dev:
     image: "ubuntu/trusty64"
+    specs:
+      cpus: 2
+      memory: 1024
     ports:
       - 8080:80:127.0.0.1
     networks:
