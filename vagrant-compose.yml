@@ -13,7 +13,7 @@ boxes:
         guest: /home/vagrant/.ssh/keys
         owner: vagrant
         group: vagrant
-        mount_options: dmode=755,fmode=754
+        mount_options: dmode=755,fmode=600
     provision:
       core:
         - provision/base.sh:privileged
@@ -21,6 +21,7 @@ boxes:
         - provision/vim.sh
         - provision/git.sh
         - provision/zsh.sh
+        - provision/docker.sh
     env:
       GIT_USERNAME: YOUR_USERNAME
       GIT_EMAIL: YOUR_EMAIL
