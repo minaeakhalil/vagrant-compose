@@ -19,13 +19,15 @@ boxes:
         mount_options: dmode=755,fmode=600
     provision:
       core:
-        - provision/base.sh:privileged
+        - base.sh:privileged
       utils:
-        - provision/vim.sh
-        - provision/git.sh
-        - provision/zsh.sh
-        - provision/docker.sh
-        - provision/mysql.sh
+        - vim.sh
+        - zsh.sh
+      development:
+        - git.sh
+        - mysql.sh
+      docker:
+        - docker.sh
     env:
       GIT_USERNAME: YOUR_USERNAME
       GIT_EMAIL: YOUR_EMAIL

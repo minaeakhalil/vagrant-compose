@@ -47,7 +47,7 @@ Vagrant.configure("2") do |config|
           env = configs['env']
         end
 
-        configs['provision'].each do |name, provision|
+        configs['provision'].each do |category, provision|
           provision.each do |script_privilege|
             script, privileged = script_privilege.split(':')
 
@@ -57,8 +57,8 @@ Vagrant.configure("2") do |config|
 
             box.vm.provision "shell",
               keep_color: true,
-              name: "#{script} under #{name}",
-              path: script,
+              name: "#{script} under #{category}",
+              path: "provision/#{category}/#{script}",
               privileged: privileged,
               env: env
           end
